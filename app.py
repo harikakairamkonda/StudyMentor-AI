@@ -39,10 +39,11 @@ Daily study hours: {daily_hours}
 Preparation level: {preparation_level}
 Student question: {question}
 
+Today's date: 2026-10-25
+Calculate the exact number of days until the exam using this date
+and the provided exam date. Do not invent another current date.
 Analyze the student's preparation and prioritize subjects.
-Use simple English. Calculate the time remaining until the exam
-based on today's date, and never assume the exam is years away.
-""")
+Use simple English.)
     response = (prompt | llm).invoke(state)
     return {"study_analysis": response.content}
 
@@ -75,7 +76,10 @@ Study analysis:
 Study plan:
 {study_plan}
 
-Combine these into a clear answer with these headings:
+Combine the study analysis and study plan without contradicting
+them. Preserve the timetable duration from the study plan.
+Do not replace a 17-day timetable with a 7-day plan.
+Use these headings:
 1. Study Analysis
 2. Personalized Study Plan
 3. Final Recommendations
