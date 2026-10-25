@@ -12,10 +12,11 @@ from langserve import add_routes
 if not os.environ.get("GOOGLE_API_KEY"):
     raise ValueError("Google API key not found. Please set GOOGLE_API_KEY first.")
 
+
 llm = ChatGoogleGenerativeAI(
-    model="gemini-3.8-flash",
-    temperature=0.3
+    model="gemini-3.5-flash-lite"
 )
+
 
 class StudyInput(TypedDict):
     subjects: str
